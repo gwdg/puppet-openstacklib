@@ -78,6 +78,7 @@ class Puppet::Provider::Openstack < Puppet::Provider
     env = credentials ? credentials.to_env : {}
     no_retry = options[:no_retry_exception_msgs]
 
+    debug "Service: #{service}, Action: #{action}, Properties: #{properties}, Environment: #{env}"
     Puppet::Util.withenv(env) do
       rv = nil
       end_time = current_time + request_timeout
